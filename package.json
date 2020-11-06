@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Imstupidpleasehelp/nodejslesson/issues"
   },
-  "homepage": "https://github.com/Imstupidpleasehelp/nodejslesson#readme"
+  "homepage": "https://github.com/Imstupidpleasehelp/nodejslesson#readme",
+  "dependencies": {
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
 }
