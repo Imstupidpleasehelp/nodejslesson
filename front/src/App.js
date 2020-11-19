@@ -16,7 +16,7 @@ function App() {
     const handleSubmit = (e) => {
       e.preventDefault();
       console.log(formData);
-      var formDataString = JSON.stringify(FormData);
+      var formDataString = JSON.stringify(formData);
       // ... submit to API or something
       download(formDataString, 'json.txt', 'text/plain');
     };
