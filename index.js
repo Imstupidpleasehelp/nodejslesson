@@ -1,10 +1,15 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
 
-// run this code by typing 'node app.js' or node . if it's an index 
-// use install -D 'stuff' for dev dependencies 
+app.use(bodyParser.urlencoded({ extended: true })); 
 
-var Person = require('./classAndMethod'); 
-// using imported stuff 
+app.post('/example', (req, res) => {
+  res.send(`Full name is:${req.body.fname} ${req.body.lname}.`);
+});
 
+const port = 8080;
 
-const Person1 = new Person('stevie', 120);  
-Person1.greeting(); 
+app.listen(port, () => {
+  console.log(`Server running on port${port}`);
+});

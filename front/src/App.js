@@ -18,7 +18,7 @@ function App() {
       console.log(formData);
       var formDataString = JSON.stringify(formData);
       // ... submit to API or something
-      download(formDataString, 'json.txt', 'text/plain');
+     // download(formDataString, 'json.txt', 'text/plain');
     };
     const initialFormData = Object.freeze({
       username: "",
@@ -36,17 +36,11 @@ function App() {
     const [formData, updateFormData] = React.useState(initialFormData);
     return (
       <>
-        <label>
-          Username
-          <input name="username" onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Password
-          <input name="password" onChange={handleChange} />
-        </label>
-        <br />
-        <button onClick={handleSubmit}>Submit</button>
+      <form action="http://localhost:8080/example" method="POST">
+  First name: <input type="text" name="fname" /><br />
+  Last name: <input type="text" name="lname" /><br />
+ <button type="submit">Send to backend</button>
+</form>
       </>
     );
   };
