@@ -8,6 +8,8 @@ function App() {
 
         // Trimming any whitespace
         [e.target.name]: e.target.value.trim(),
+        
+
       });
     };
 
@@ -15,11 +17,21 @@ function App() {
       e.preventDefault();
       console.log(formData);
       // ... submit to API or something
+      download(formData, 'json.txt', 'text/plain');
     };
     const initialFormData = Object.freeze({
       username: "",
       password: "",
     });
+    function download(formData, fileName, contentType) {
+      var a = document.createElement("a");
+      var file = new Blob([formData], {type: contentType});
+      a.href = URL.createObjectURL(file);
+      a.download = fileName;
+      a.click();
+      
+  }
+  
     const [formData, updateFormData] = React.useState(initialFormData);
     return (
       <>
