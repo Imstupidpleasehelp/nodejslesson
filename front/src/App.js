@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
 function App() {
   const FooBarForm = () => {
     const handleChange = (e) => {
@@ -16,16 +16,17 @@ function App() {
     const handleSubmit = (e) => {
       e.preventDefault();
       console.log(formData);
+      var formDataString = JSON.stringify(FormData);
       // ... submit to API or something
-      download(formData, 'json.txt', 'text/plain');
+      download(formDataString, 'json.txt', 'text/plain');
     };
     const initialFormData = Object.freeze({
       username: "",
       password: "",
     });
-    function download(formData, fileName, contentType) {
+    function download(formDataString, fileName, contentType) {
       var a = document.createElement("a");
-      var file = new Blob([formData], {type: contentType});
+      var file = new Blob([formDataString], {type: contentType});
       a.href = URL.createObjectURL(file);
       a.download = fileName;
       a.click();
